@@ -27,6 +27,12 @@ class ProductSeeder extends Seeder
             'image_url' => 'products/coca-cola.jpg',
         ]);
         Product::query()->create([
+            'name' => 'Fanta Orange',
+            'price' => 4000,
+            'quantity' => 100,
+            'image_url' => 'products/fanta.jpg',
+        ]);
+        Product::query()->create([
             'name' => 'Mizone',
             'price' => 7000,
             'quantity' => 100,

@@ -34,9 +34,12 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                    @auth
                     <ul class="navbar-nav mr-auto">
-
+                        <a class="nav-link mr-3" href="/products">Master Produk</a>
+                        <a class="nav-link" href="/checkout">Riwayat Transaksi</a>
                     </ul>
+                    @endauth
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -54,7 +57,12 @@
                         </li>
                         @endif
                         @else
-                        <li class="nav-item dropdown">
+                        <h5 class="mt-2 mr-3">{{ Auth::user()->name }}</h5>
+                        <form action="{{ route('logout') }}" method="POST"">
+                        @csrf
+                        <button class="btn btn-outline-danger" type="submit">Logout</button>
+                        </form>
+                        <!-- <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
@@ -69,7 +77,7 @@
                                     @csrf
                                 </form>
                             </div>
-                        </li>
+                        </li> -->
                         @endguest
                     </ul>
                 </div>
